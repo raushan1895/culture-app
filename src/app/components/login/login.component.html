@@ -1,0 +1,50 @@
+<div class="portfolio-modal modal fade" id="loginPopUp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <h2 class="text-uppercase">LogIn</h2>
+                            <p class="item-intro text-muted">Enter your email and password to login successfully</p>
+
+                            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+                                <div class="row align-items-stretch mb-5">
+                                    <div class="col-md-8" style="margin: auto;">
+                                        
+                                        <div class="form-group" style="margin-bottom: 12px;">
+                                            <!-- Email address input-->
+                                            <input class="form-control" id="loginEmail" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': loginForm.submitted && email.invalid }" required email type="email" placeholder="Your Email *"/>
+                                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                        </div>
+                                        <div class="form-group mb-md-0">
+                                            <!-- Phone number input-->
+                                            <input class="form-control" id="password" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': loginForm.submitted && password.invalid }" required type="password" placeholder="Your Password *"/>
+                                            <div class="invalid-feedback" data-sb-feedback="password:required">A password is required.</div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <p *ngIf="userNotPresent" class="item-intro text-muted">User Not Present! Try with other credentials</p>
+                                
+                                <button class="btn btn-primary btn-xl text-uppercase margin-right-class" style="
+                                margin-left: 6px;" type="submit">
+                                    <i class="fas fa-solid fa-check"></i>
+                                    Submit
+                                </button>
+                                <button class="btn btn-primary btn-xl text-uppercase" id="closeLoginModel" data-bs-dismiss="modal" type="button">
+                                    <i class="fas fa-times me-1"></i>
+                                    Cancel
+                                </button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
